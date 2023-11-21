@@ -9,6 +9,9 @@ export default function TailHeaderMenu() {
         <TailLink href="/lec/clock" title="clock" />
         <TailLink href="/lec/lotto" title="Lotto" />
         <TailLink href="/lec/boxoffice" title="Boxoffice" /> 
+        <TailLink href="/lec/boxoffices" title="최신Boxoffice" /> 
+        <TailLink href="/park/A01" title="주차1" /> 
+        <TailLink href="/park/A02" title="주차2" /> 
         <TailLink href="/" title="Home" /> 
       </nav>
     </div>

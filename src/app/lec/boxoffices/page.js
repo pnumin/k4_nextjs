@@ -20,16 +20,21 @@ export default async function BoxofficesPage() {
   url = url + seldt;
   console.log("url=", url);
 
-  const res = await fetch(url) ;
+  const res = await fetch(url,{next:{ revalidate : 0}}) ;
   const data = await res.json() ;
 
   const showRange  = data.boxOfficeResult.showRange.split('~')[0];
   const dailyBoxOfficeList = data.boxOfficeResult.dailyBoxOfficeList ;
-  console.log("showRange =", showRange)
-  console.log("dailyBoxOfficeList =",dailyBoxOfficeList)
+  // console.log("showRange =", showRange)
+  // console.log("dailyBoxOfficeList =",dailyBoxOfficeList)
   return (
     <div>
-      Enter
+      <div className="text-3xl font-bold">박스오피스 : {showRange}</div>
+      <ul>
+      {dailyBoxOfficeList.map((item) =>
+        <li key={item.movieCd}>{item.rank} : {item.movieNm} </li>  
+      )}
+      </ul>
     </div>
   );
 }
